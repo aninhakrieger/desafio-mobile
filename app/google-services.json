@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "801331035077",
+    "firebase_url": "https://desafio-mobile.firebaseio.com",
+    "project_id": "desafio-mobile",
+    "storage_bucket": "desafio-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801331035077:android:ce409a621cebd1e0",
+        "android_client_info": {
+          "package_name": "br.com.anakrieger.desafiomobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801331035077-75e80osumtq25uq049ui60kr3o8ntbdd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.anakrieger.desafiomobile",
+            "certificate_hash": "7ab0b6a15925874e719e1e05ad69f1992fdc70b9"
+          }
+        },
+        {
+          "client_id": "801331035077-em4j4fi6hda5i0o55oevf2kbv6ns4ltt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJUO3-YhyYPNYUPUE2972PVBo2LCFBE5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801331035077-em4j4fi6hda5i0o55oevf2kbv6ns4ltt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
