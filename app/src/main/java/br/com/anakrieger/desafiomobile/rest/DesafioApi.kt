@@ -1,6 +1,6 @@
 package br.com.anakrieger.desafiomobile.rest
 
-import br.com.anakrieger.desafiomobile.model.ApiResponse
+import br.com.anakrieger.desafiomobile.model.generatedmodel.ApiResponse
 import br.com.anakrieger.desafiomobile.model.Criteria
 import retrofit2.Call
 import retrofit2.http.Body

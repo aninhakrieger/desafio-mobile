@@ -8,9 +8,8 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import br.com.anakrieger.desafiomobile.R
-import br.com.anakrieger.desafiomobile.model.ApiResponse
+import br.com.anakrieger.desafiomobile.model.generatedmodel.ApiResponse
 import br.com.anakrieger.desafiomobile.model.Criteria
-import br.com.anakrieger.desafiomobile.model.Reponse
 import br.com.anakrieger.desafiomobile.rest.DesafioApi
 import br.com.anakrieger.desafiomobile.rest.createRetrofit
 import kotlinx.android.synthetic.main.activity_main.*

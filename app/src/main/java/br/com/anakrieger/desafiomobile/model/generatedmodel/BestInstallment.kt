@@ -1,7 +1,8 @@
-package br.com.anakrieger.desafiomobile.model
+package br.com.anakrieger.desafiomobile.model.generatedmodel
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class BestInstallment(
 
 	@field:JsonProperty("Rate")
