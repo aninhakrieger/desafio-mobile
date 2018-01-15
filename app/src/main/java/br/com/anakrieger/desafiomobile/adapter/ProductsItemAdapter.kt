@@ -66,7 +66,6 @@ class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : Re
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var name: TextView? = null
-        //        var btnProducts: Button? = null
         var image: ImageView? = null
         var price: TextView? = null
         var listPrice: TextView? = null
@@ -84,9 +83,6 @@ class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : Re
             oldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             listPrice = oldPrice
 
-//            val btn = itemView.findViewById<Button>(R.id.product_btn)
-//            btn.setOnClickListener(this)
-//            btnProducts = btn
         }
 
         override fun onClick(view: View) {

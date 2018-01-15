@@ -6,7 +6,9 @@ import android.support.v4.app.FragmentManager
 import android.util.Log
 import android.widget.ImageView
 import br.com.anakrieger.desafiomobile.R
+import br.com.anakrieger.desafiomobile.constant.LIST_CATEGORIES_ITEM
 import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
+import br.com.anakrieger.desafiomobile.fragment.CategoriesItemFragment
 import br.com.anakrieger.desafiomobile.fragment.ProductsItemFragment
 import br.com.anakrieger.desafiomobile.model.Criteria
 import br.com.anakrieger.desafiomobile.model.generatedcategory.ApiCategoryResponse
@@ -19,6 +21,7 @@ import com.squareup.picasso.Transformation
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.reflect.Type
 import java.math.BigDecimal
 
 /**
@@ -113,6 +116,7 @@ fun getCategories(fragmentManager: FragmentManager): ArrayList<CategoriesItem?>?
                     }
                 }
 
+                createCategoryView(listOfCategories, fragmentManager )
                 Log.d("Success", "$res")
             }
         }
@@ -125,16 +129,16 @@ fun getCategories(fragmentManager: FragmentManager): ArrayList<CategoriesItem?>?
     return listOfCategories
 }
 
-fun createCategoryView(listProductsItem: ArrayList<ProductsItem?>?, fragmentManager: FragmentManager ) {
+fun createCategoryView(listCategoriesItem: ArrayList<CategoriesItem?>?, fragmentManager: FragmentManager ) {
     val fragmentTransaction = fragmentManager.beginTransaction()
 
     val arguments = Bundle()
-    arguments.putSerializable(LIST_PRODUCTS_ITEM, listProductsItem)
+    arguments.putSerializable(LIST_CATEGORIES_ITEM, listCategoriesItem)
 
-    val productsItemFragment = ProductsItemFragment()
-    productsItemFragment.arguments = arguments
+    val categoriesItemFragment = CategoriesItemFragment()
+    categoriesItemFragment.arguments = arguments
 
-    fragmentTransaction.replace(R.id.search_edit_frame, productsItemFragment)
+    fragmentTransaction.replace(R.id.category_frame, categoriesItemFragment)
     fragmentTransaction.commitAllowingStateLoss()
 }
 

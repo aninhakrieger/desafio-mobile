@@ -26,7 +26,7 @@ open class CategoriesItem: Serializable {
 	val image: Any? = null
 
 	@field:JsonProperty("SubCategories")
-	val subCategories: List<SubCategoriesItem?>? = null
+	val subCategories: List<CategoriesItem?>? = null
 
 	@field:JsonProperty("CategoryListOrder")
 	val categoryListOrder: Int? = null

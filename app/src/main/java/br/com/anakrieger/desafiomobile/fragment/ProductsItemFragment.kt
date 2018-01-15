@@ -23,8 +23,6 @@ class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickLi
         return inflater!!.inflate(R.layout.fragment_products_item_list, container, false)
     }
 
-
-
     override fun onProductsItemClick(view: View, position: Int) {
         Log.d("ITEM", "Item $position selecionado. ")
     }
