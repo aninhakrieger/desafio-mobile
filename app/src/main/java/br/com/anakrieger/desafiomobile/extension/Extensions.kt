@@ -21,7 +21,6 @@ import com.squareup.picasso.Transformation
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.reflect.Type
 import java.math.BigDecimal
 
 /**
@@ -48,7 +47,7 @@ fun getProducts(fragmentManager: FragmentManager): ArrayList<ProductsItem?>? {
                     }
                 }
 
-                Log.d("Success", "$res")
+                Log.d("Success", "${apiResponse?.products}")
             }
         }
 
@@ -97,7 +96,6 @@ fun loadPicture(view: ImageView, context: Context, url: String, transformation: 
 }
 
 fun getCategories(fragmentManager: FragmentManager): ArrayList<CategoriesItem?>? {
-    val criteria = Criteria()
     var listOfCategories: ArrayList<CategoriesItem?>? = null
 
     val desafioApiInterface = createRetrofit(DesafioApi::class.java)
@@ -117,7 +115,7 @@ fun getCategories(fragmentManager: FragmentManager): ArrayList<CategoriesItem?>?
                 }
 
                 createCategoryView(listOfCategories, fragmentManager )
-                Log.d("Success", "$res")
+                Log.d("Success", "${apiResponse?.categories}")
             }
         }
 
