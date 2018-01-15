@@ -15,5 +15,5 @@ interface DesafioApi {
     fun getSearch(@Body criteria: Criteria) : Call<ApiResponse>
 
     @GET("StorePreference/CategoryTree")
-    fun getStorePreference(@Field("query") query: String) : Call<ApiCategoryResponse>
+    fun getStorePreference() : Call<ApiCategoryResponse>
 }

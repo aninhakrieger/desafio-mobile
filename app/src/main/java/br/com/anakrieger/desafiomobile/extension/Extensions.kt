@@ -98,7 +98,7 @@ fun getCategories(fragmentManager: FragmentManager): ArrayList<CategoriesItem?>?
     var listOfCategories: ArrayList<CategoriesItem?>? = null
 
     val desafioApiInterface = createRetrofit(DesafioApi::class.java)
-    desafioApiInterface.getStorePreference(query = criteria.query).enqueue(object : Callback<ApiCategoryResponse> {
+    desafioApiInterface.getStorePreference().enqueue(object : Callback<ApiCategoryResponse> {
         override fun onResponse(call: Call<ApiCategoryResponse>?, response: Response<ApiCategoryResponse>?) {
             response?.let { res ->
                 val apiResponse = res.body()
