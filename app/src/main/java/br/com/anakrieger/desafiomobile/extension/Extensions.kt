@@ -18,6 +18,7 @@ import com.squareup.picasso.Transformation
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.math.BigDecimal
 
 /**
  * Created by anakrieger on 14/01/2018.
@@ -75,5 +76,8 @@ fun loadPicture(view: ImageView, context: Context, url: String, transformation: 
             .load(url)
             .placeholder(drawable)
             .transform(transformation)
+            .fit()
+            .centerInside()
             .into(view)
 }
+
