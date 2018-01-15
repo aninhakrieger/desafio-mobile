@@ -19,20 +19,17 @@ class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickLi
 
     private var listProductsItem: ArrayList<ProductsItem> = arrayListOf()
 
-
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_products_item_list, container, false)
-
-        return view
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater!!.inflate(R.layout.fragment_products_item_list, container, false)
     }
+
+
 
     override fun onProductsItemClick(view: View, position: Int) {
         Log.d("ITEM", "Item $position selecionado. ")
     }
 
     private fun populateListProductsItem(list: ArrayList<ProductsItem>) {
-        Log.d("list", "$list")
 
         listProductsItem = arrayListOf()
         listProductsItem.addAll(list)
@@ -51,17 +48,17 @@ class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickLi
         llm.orientation = LinearLayoutManager.VERTICAL
         mRecyclerView.layoutManager = llm
 
-        val adapter = ProductsItemAdapter(activity, listProductsItem)
-        adapter.setProductsItemClickListener(this@ProductsItemFragment)
+        val adapter = this.activity?.let { ProductsItemAdapter(it, listProductsItem) }
+        adapter?.setProductsItemClickListener(this@ProductsItemFragment)
 
         mRecyclerView.adapter = adapter
 
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val list: ArrayList<ProductsItem> = arrayListOf()
-        this.arguments.getSerializable(LIST_PRODUCTS_ITEM)?.let {
+        this.arguments?.getSerializable(LIST_PRODUCTS_ITEM)?.let {
             list.addAll(it as ArrayList<ProductsItem>)
         }
         populateListProductsItem(list)

@@ -7,4 +7,5 @@
     <color name="white">#FFFFFF</color>
     <color name="green">#229e1a</color>
     <color name="gray">#808080</color>
+    <color name="notification_icon_color" >#01AEEA</color>
 </resources>

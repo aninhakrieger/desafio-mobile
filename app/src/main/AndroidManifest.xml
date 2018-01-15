@@ -17,6 +17,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.pushwoosh.appid"
+            android:value="@string/test_push_app_id" />
+
+        <meta-data
+            android:name="com.pushwoosh.senderid"
+            android:value="@string/test_push_sender_id" />
+
+        <meta-data
+            android:name="com.pushwoosh.notification_icon"
+            android:value="@drawable/app_icon" />
+        <meta-data
+            android:name="com.pushwoosh.notification_icon_color"
+            android:value="@color/notification_icon_color" />
+
     </application>
 
 </manifest>

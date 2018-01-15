@@ -8,6 +8,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         card_view:cardBackgroundColor="@color/white">
@@ -15,7 +16,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
 
             <LinearLayout
@@ -32,11 +34,11 @@
                     android:gravity="center"
                     android:lines="2"
                     android:padding="5dp"
-                    android:text="10% OFF"
+                    android:text="@string/discount"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:visibility="gone" />
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
@@ -59,14 +61,14 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/product_list_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
                 android:text="600,00"
                 android:textAlignment="center"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:visibility="invisible" />
 
 
             <TextView
