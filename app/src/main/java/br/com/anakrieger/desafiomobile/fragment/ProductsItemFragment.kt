@@ -17,14 +17,8 @@ import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
 
 class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickListener {
 
-    private val mColumnCount = 1
     private var listProductsItem: ArrayList<ProductsItem> = arrayListOf()
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -51,7 +45,7 @@ class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickLi
         }
 
         val mRecyclerView: RecyclerView = view!!.findViewById(R.id.list_products)
-        mRecyclerView.setHasFixedSize(true)
+        mRecyclerView.setHasFixedSize(false)
 
         val llm = GridLayoutManager(activity,2)
         llm.orientation = LinearLayoutManager.VERTICAL

@@ -1,8 +1,10 @@
 package br.com.anakrieger.desafiomobile.extension
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.FragmentManager
 import android.util.Log
+import android.widget.ImageView
 import br.com.anakrieger.desafiomobile.R
 import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
 import br.com.anakrieger.desafiomobile.fragment.ProductsItemFragment
@@ -11,6 +13,8 @@ import br.com.anakrieger.desafiomobile.model.generatedmodel.ApiResponse
 import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
 import br.com.anakrieger.desafiomobile.rest.DesafioApi
 import br.com.anakrieger.desafiomobile.rest.createRetrofit
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Transformation
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,5 +66,14 @@ fun createHomeView(listProductsItem: ArrayList<ProductsItem?>?, fragmentManager:
     productsItemFragment.arguments = arguments
 
     fragmentTransaction.replace(R.id.search_edit_frame, productsItemFragment)
-    fragmentTransaction.commit()
+    fragmentTransaction.commitAllowingStateLoss()
+}
+
+
+fun loadPicture(view: ImageView, context: Context, url: String, transformation: Transformation, drawable: Int){
+    Picasso.with(context)
+            .load(url)
+            .placeholder(drawable)
+            .transform(transformation)
+            .into(view)
 }

@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import br.com.anakrieger.desafiomobile.R
+import br.com.anakrieger.desafiomobile.extension.loadPicture
 import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
+import jp.wasabeef.picasso.transformations.CropSquareTransformation
 
 class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : RecyclerView.Adapter<ProductsItemAdapter.ViewHolder>() {
 
@@ -23,8 +26,13 @@ class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : Re
 
     override fun onBindViewHolder(myViewHolder: ViewHolder, position: Int) {
         val productItem: ProductsItem = listProductsItem[position]
-        myViewHolder.id?.text = productItem.id
-        myViewHolder.name?.text = productItem.name
+        productItem?.let{ product ->
+            myViewHolder.id?.text = product.id
+            myViewHolder.name?.text = product.name
+            myViewHolder.image?.let {
+                loadPicture(it, context = it.context ,url = product.skus?.get(0)?.images?.get(0)?.imageUrl.toString(), transformation = CropSquareTransformation(), drawable = R.drawable.not_available  )
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -35,10 +43,12 @@ class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : Re
         var id: TextView? = null
         var name: TextView? = null
         var btnProducts: Button? = null
+        var image: ImageView? = null
 
         init {
             id = itemView.findViewById(R.id.product_id)
-            id = itemView.findViewById(R.id.product_name)
+            name = itemView.findViewById(R.id.product_name)
+            image = itemView.findViewById(R.id.product_image)
 
             val btn = itemView.findViewById<Button>(R.id.product_btn)
             btn.setOnClickListener(this)
