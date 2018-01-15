@@ -5,18 +5,14 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
 import br.com.anakrieger.desafiomobile.R
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ApiResponse
-import br.com.anakrieger.desafiomobile.model.Criteria
-import br.com.anakrieger.desafiomobile.rest.DesafioApi
-import br.com.anakrieger.desafiomobile.rest.createRetrofit
+import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
+import br.com.anakrieger.desafiomobile.extension.getProducts
+import br.com.anakrieger.desafiomobile.fragment.ProductsItemFragment
+import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -31,23 +27,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        val criteria = Criteria()
+        val listProductsItem = getProducts(supportFragmentManager)
 
-        val desafioApiInterface = createRetrofit(DesafioApi::class.java)
-        desafioApiInterface?.getSearch(criteria = criteria).enqueue(object : Callback<ApiResponse> {
-            override fun onResponse(call: Call<ApiResponse>?, response: Response<ApiResponse>?) {
-                response?.let { res ->
-
-                    Log.i("Success", "$res")
-                }
-            }
-
-            override fun onFailure(call: Call<ApiResponse>?, t: Throwable?) {
-                Log.i("ERROR", "$t")
-            }
-
-        })
+//        createHomeView(listProductsItem)
     }
+
+
+
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {

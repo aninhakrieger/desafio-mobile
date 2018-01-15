@@ -1,0 +1,76 @@
+package br.com.anakrieger.desafiomobile.fragment
+
+import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
+import br.com.anakrieger.desafiomobile.R
+import br.com.anakrieger.desafiomobile.adapter.ProductsItemAdapter
+import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
+import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
+
+class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickListener {
+
+    private val mColumnCount = 1
+    private var listProductsItem: ArrayList<ProductsItem> = arrayListOf()
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater!!.inflate(R.layout.fragment_products_item_list, container, false)
+
+        return view
+    }
+
+    override fun onProductsItemClick(view: View, position: Int) {
+        Log.d("ITEM", "Item $position selecionado. ")
+    }
+
+    private fun populateListProductsItem(list: ArrayList<ProductsItem>) {
+        Log.d("list", "$list")
+
+        listProductsItem = arrayListOf()
+        listProductsItem.addAll(list)
+
+
+        if (!listProductsItem.isEmpty()) {
+            listProductsItem.map { it ->
+                Log.d("LOG", "${it.id} ${it.name}" )
+            }
+        }
+
+        val mRecyclerView: RecyclerView = view!!.findViewById(R.id.list_products)
+        mRecyclerView.setHasFixedSize(true)
+
+        val llm = GridLayoutManager(activity,2)
+        llm.orientation = LinearLayoutManager.VERTICAL
+        mRecyclerView.layoutManager = llm
+
+        val adapter = ProductsItemAdapter(activity, listProductsItem)
+        adapter.setProductsItemClickListener(this@ProductsItemFragment)
+
+        mRecyclerView.adapter = adapter
+
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val list: ArrayList<ProductsItem> = arrayListOf()
+        this.arguments.getSerializable(LIST_PRODUCTS_ITEM)?.let {
+            list.addAll(it as ArrayList<ProductsItem>)
+        }
+        populateListProductsItem(list)
+    }
+
+}
