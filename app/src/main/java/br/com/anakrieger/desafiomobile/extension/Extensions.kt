@@ -70,6 +70,17 @@ fun createHomeView(listProductsItem: ArrayList<ProductsItem?>?, fragmentManager:
     fragmentTransaction.commitAllowingStateLoss()
 }
 
+fun getDiscount(price: Double, listPrice: Double): Int {
+    val bdPrice: BigDecimal = BigDecimal.valueOf(price)
+    val bdListPrice: BigDecimal = BigDecimal.valueOf(listPrice)
+
+    val div = bdPrice.div(other = bdListPrice)
+
+    val discount: BigDecimal = BigDecimal(1).minus(div)
+
+    return discount.multiply(BigDecimal.valueOf(100)).setScale(0, BigDecimal.ROUND_HALF_UP).toInt()
+}
+
 
 fun loadPicture(view: ImageView, context: Context, url: String, transformation: Transformation, drawable: Int){
     Picasso.with(context)

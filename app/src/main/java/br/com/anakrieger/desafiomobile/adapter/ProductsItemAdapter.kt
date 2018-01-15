@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import br.com.anakrieger.desafiomobile.R
+import br.com.anakrieger.desafiomobile.extension.getDiscount
 import br.com.anakrieger.desafiomobile.extension.loadPicture
 import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
 import jp.wasabeef.picasso.transformations.CropSquareTransformation
-import java.math.BigDecimal
 
+/**
+ * Created by anakrieger on 14/01/2018.
+ */
 class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : RecyclerView.Adapter<ProductsItemAdapter.ViewHolder>() {
 
     private var mLayoutInflater: LayoutInflater? = null
@@ -105,18 +108,6 @@ class ProductsItemAdapter(mContext: Context, data: ArrayList<ProductsItem>) : Re
 
     init {
         this.mLayoutInflater = LayoutInflater.from(mContext)
-    }
-
-
-    fun getDiscount(price: Double, listPrice: Double): Int {
-        var bdPrice: BigDecimal = BigDecimal.valueOf(price)
-        var bdListPrice: BigDecimal = BigDecimal.valueOf(listPrice)
-
-        val div = bdPrice.div(other = bdListPrice)
-
-        val discount: BigDecimal = BigDecimal(1).minus(div)
-
-        return discount.multiply(BigDecimal.valueOf(100)).setScale(0, BigDecimal.ROUND_HALF_UP).toInt()
     }
 
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:hint="@string/search"
+    android:includeInGlobalSearch="true"
+    android:label="string resource"
+    android:queryAfterZeroResults="true"
+    android:searchButtonText="string resource"
+    android:searchMode="queryRewriteFromData"
+    android:searchSettingsDescription="string resource"
+    android:voiceSearchMode="showVoiceSearchButton">
+    <actionkey
+        android:keycode="KEYCODE_SEARCH"
+        android:queryActionMsg="string"
+        android:suggestActionMsg="string"
+        android:suggestActionMsgColumn="string" />
+</searchable>

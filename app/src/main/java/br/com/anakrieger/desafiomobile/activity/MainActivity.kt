@@ -7,10 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import br.com.anakrieger.desafiomobile.R
-import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
 import br.com.anakrieger.desafiomobile.extension.getProducts
-import br.com.anakrieger.desafiomobile.fragment.ProductsItemFragment
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -24,14 +21,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setIcon(R.drawable.ic_search)
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        val listProductsItem = getProducts(supportFragmentManager)
+        getProducts(supportFragmentManager)
 
-//        createHomeView(listProductsItem)
     }
-
 
 
 
@@ -46,10 +43,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.nav_home -> {
+                getProducts(supportFragmentManager)
             }
-            R.id.nav_gallery -> {
+            R.id.nav_search -> {
 
             }
 
