@@ -9,10 +9,11 @@ import br.com.anakrieger.desafiomobile.R
 import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
 import br.com.anakrieger.desafiomobile.fragment.ProductsItemFragment
 import br.com.anakrieger.desafiomobile.model.Criteria
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ApiResponse
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
+import br.com.anakrieger.desafiomobile.model.generatedcategory.ApiCategoryResponse
+import br.com.anakrieger.desafiomobile.model.generatedcategory.CategoriesItem
+import br.com.anakrieger.desafiomobile.model.generatedproduct.ApiResponse
+import br.com.anakrieger.desafiomobile.model.generatedproduct.ProductsItem
 import br.com.anakrieger.desafiomobile.rest.DesafioApi
-import br.com.anakrieger.desafiomobile.rest.createRetrofit
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 import retrofit2.Call
@@ -91,4 +92,51 @@ fun loadPicture(view: ImageView, context: Context, url: String, transformation: 
             .centerInside()
             .into(view)
 }
+
+fun getCategories(fragmentManager: FragmentManager): ArrayList<CategoriesItem?>? {
+    val criteria = Criteria()
+    var listOfCategories: ArrayList<CategoriesItem?>? = null
+
+    val desafioApiInterface = createRetrofit(DesafioApi::class.java)
+    desafioApiInterface.getStorePreference(query = criteria.query).enqueue(object : Callback<ApiCategoryResponse> {
+        override fun onResponse(call: Call<ApiCategoryResponse>?, response: Response<ApiCategoryResponse>?) {
+            response?.let { res ->
+                val apiResponse = res.body()
+                when (res.code()) {
+                    200 -> {
+                        apiResponse?.categories?.let {
+                            listOfCategories = it
+                            listOfCategories?.map { categoryItem ->
+                                Log.d("Categoria", categoryItem?.name)
+                            }
+                        }
+                    }
+                }
+
+                Log.d("Success", "$res")
+            }
+        }
+
+        override fun onFailure(call: Call<ApiCategoryResponse>?, t: Throwable?) {
+            Log.e("ERROR", "$t")
+        }
+
+    })
+    return listOfCategories
+}
+
+fun createCategoryView(listProductsItem: ArrayList<ProductsItem?>?, fragmentManager: FragmentManager ) {
+    val fragmentTransaction = fragmentManager.beginTransaction()
+
+    val arguments = Bundle()
+    arguments.putSerializable(LIST_PRODUCTS_ITEM, listProductsItem)
+
+    val productsItemFragment = ProductsItemFragment()
+    productsItemFragment.arguments = arguments
+
+    fragmentTransaction.replace(R.id.search_edit_frame, productsItemFragment)
+    fragmentTransaction.commitAllowingStateLoss()
+}
+
+
 

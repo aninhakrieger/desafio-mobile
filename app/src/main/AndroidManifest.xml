@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,17 +22,18 @@
         <meta-data
             android:name="com.pushwoosh.appid"
             android:value="@string/test_push_app_id" />
-
         <meta-data
             android:name="com.pushwoosh.senderid"
             android:value="@string/test_push_sender_id" />
-
         <meta-data
             android:name="com.pushwoosh.notification_icon"
             android:value="@drawable/app_icon" />
         <meta-data
             android:name="com.pushwoosh.notification_icon_color"
             android:value="@color/notification_icon_color" />
+
+        <activity android:name=".activity.CategoryActivity"
+            android:parentActivityName=".activity.MainActivity"/>
 
     </application>
 

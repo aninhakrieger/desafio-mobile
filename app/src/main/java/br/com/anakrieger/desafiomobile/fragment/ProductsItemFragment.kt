@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import br.com.anakrieger.desafiomobile.R
 import br.com.anakrieger.desafiomobile.adapter.ProductsItemAdapter
 import br.com.anakrieger.desafiomobile.constant.LIST_PRODUCTS_ITEM
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
+import br.com.anakrieger.desafiomobile.model.generatedproduct.ProductsItem
 
 class ProductsItemFragment : Fragment(), ProductsItemAdapter.ProductsItemClickListener {
 

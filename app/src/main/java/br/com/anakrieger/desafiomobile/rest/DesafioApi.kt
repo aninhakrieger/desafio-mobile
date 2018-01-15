@@ -1,11 +1,10 @@
 package br.com.anakrieger.desafiomobile.rest
 
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ApiResponse
+import br.com.anakrieger.desafiomobile.model.generatedproduct.ApiResponse
 import br.com.anakrieger.desafiomobile.model.Criteria
+import br.com.anakrieger.desafiomobile.model.generatedcategory.ApiCategoryResponse
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * Created by anakrieger on 12/01/2018.
@@ -16,5 +15,5 @@ interface DesafioApi {
     fun getSearch(@Body criteria: Criteria) : Call<ApiResponse>
 
     @GET("StorePreference/CategoryTree")
-    fun getStorePreference() : Call<Any>
+    fun getStorePreference(@Field("query") query: String) : Call<ApiCategoryResponse>
 }

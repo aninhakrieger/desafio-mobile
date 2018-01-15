@@ -11,7 +11,7 @@ import android.widget.TextView
 import br.com.anakrieger.desafiomobile.R
 import br.com.anakrieger.desafiomobile.extension.getDiscount
 import br.com.anakrieger.desafiomobile.extension.loadPicture
-import br.com.anakrieger.desafiomobile.model.generatedmodel.ProductsItem
+import br.com.anakrieger.desafiomobile.model.generatedproduct.ProductsItem
 import jp.wasabeef.picasso.transformations.CropSquareTransformation
 
 /**

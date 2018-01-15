@@ -1,6 +1,5 @@
-package br.com.anakrieger.desafiomobile.rest
+package br.com.anakrieger.desafiomobile.extension
 
-import android.app.Activity
 import br.com.anakrieger.desafiomobile.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
