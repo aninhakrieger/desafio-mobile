@@ -2,18 +2,20 @@ package br.com.anakrieger.desafiomobile.model.generatedmodel
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.io.Serializable
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class BestInstallment(
+open class BestInstallment: Serializable {
 
 	@field:JsonProperty("Rate")
-	val rate: Int? = null,
+	val rate: Int? = null
 
 	@field:JsonProperty("Total")
-	val total: Double? = null,
+	val total: Double? = null
 
 	@field:JsonProperty("Value")
-	val value: Double? = null,
+	val value: Double? = null
 
 	@field:JsonProperty("Count")
 	val count: Int? = null
-)
+}
