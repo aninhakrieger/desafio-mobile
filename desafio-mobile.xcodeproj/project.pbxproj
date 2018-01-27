@@ -12,6 +12,9 @@
 		B20DA702201BF4D50069BA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20DA700201BF4D50069BA58 /* Main.storyboard */; };
 		B20DA704201BF4D50069BA58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20DA703201BF4D50069BA58 /* Assets.xcassets */; };
 		B20DA707201BF4D50069BA58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20DA705201BF4D50069BA58 /* LaunchScreen.storyboard */; };
+		B2C75114201BF80F0090F898 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C75113201BF80F0090F898 /* GoogleService-Info.plist */; };
+		B2CC4033201C042800762693 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2CC4031201C042800762693 /* Crashlytics.framework */; };
+		B2CC4034201C042800762693 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2CC4032201C042800762693 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		B20DA703201BF4D50069BA58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B20DA706201BF4D50069BA58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20DA708201BF4D50069BA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C75113201BF80F0090F898 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B2CC4031201C042800762693 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		B2CC4032201C042800762693 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CC4033201C042800762693 /* Crashlytics.framework in Frameworks */,
+				B2CC4034201C042800762693 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +62,15 @@
 		B20DA6FB201BF4D50069BA58 /* desafio-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				B2CC4031201C042800762693 /* Crashlytics.framework */,
+				B2CC4032201C042800762693 /* Fabric.framework */,
 				B20DA6FC201BF4D50069BA58 /* AppDelegate.swift */,
 				B20DA6FE201BF4D50069BA58 /* ViewController.swift */,
 				B20DA700201BF4D50069BA58 /* Main.storyboard */,
 				B20DA703201BF4D50069BA58 /* Assets.xcassets */,
 				B20DA705201BF4D50069BA58 /* LaunchScreen.storyboard */,
 				B20DA708201BF4D50069BA58 /* Info.plist */,
+				B2C75113201BF80F0090F898 /* GoogleService-Info.plist */,
 			);
 			path = "desafio-mobile";
 			sourceTree = "<group>";
@@ -74,6 +85,7 @@
 				B20DA6F5201BF4D50069BA58 /* Sources */,
 				B20DA6F6201BF4D50069BA58 /* Frameworks */,
 				B20DA6F7201BF4D50069BA58 /* Resources */,
+				B270BA4E201C011500CE3A39 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,10 +138,28 @@
 				B20DA707201BF4D50069BA58 /* LaunchScreen.storyboard in Resources */,
 				B20DA704201BF4D50069BA58 /* Assets.xcassets in Resources */,
 				B20DA702201BF4D50069BA58 /* Main.storyboard in Resources */,
+				B2C75114201BF80F0090F898 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B270BA4E201C011500CE3A39 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 08117e182531a64f6e64f66ba9a7c88a6659c7c4 da7ec2dcdf9bc733c3adbc344be0e239da762e98ad0a80a49a0aa2f81054fc67";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B20DA6F5201BF4D50069BA58 /* Sources */ = {
@@ -276,6 +306,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY2RAXB98B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "desafio-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ana.krieger.com.desafio-mobile";
@@ -291,6 +325,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY2RAXB98B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "desafio-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ana.krieger.com.desafio-mobile";
